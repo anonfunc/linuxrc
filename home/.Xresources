@@ -1,0 +1,5 @@
+Emacs.FontBackend: xft
+!Emacs.Font: Inconsolata-dz-14
+Emacs.Font: Source Code Pro-14
+
+

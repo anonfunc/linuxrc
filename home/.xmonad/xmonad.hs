@@ -23,7 +23,7 @@ main = do
               , modMask    = mod4Mask -- rebind mod to the windows key
               , terminal   = "gnome-terminal"
               , logHook    = takeTopFocus >> setWMName "LG3D" >> updatePointer (Relative 1 1)
-             } `additionalKeysP` keys
+             } `additionalKeysP` keys `removeKeysP` removeKeys
       where
         myManageHook :: ManageHook
         myManageHook = composeAll
@@ -47,8 +47,14 @@ main = do
         {-nmaster = 1-}
         {-delta = 3/100-}
         {-ratio = 1/2-}
+        -- Remove some keys.
+        removeKeys = [ "M-w"
+                     , "M-e"
+                     , "M-r"
+                     ]
         keys = [ ("M-S-z", spawn "gnome-screensaver-command --lock")
                , ("M-S-q", spawn "gnome-session-save --gui --logout-dialog")
+               , ("M-S-f", spawn "xdg-open https://duckduckgo.com")
                , ("M-<Left>", prevScreen)
                , ("M-<Right>", nextScreen)
                , ("M-S-<Left>", shiftPrevScreen)

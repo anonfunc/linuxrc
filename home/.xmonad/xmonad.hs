@@ -15,6 +15,8 @@ import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig
 import Data.Ratio ((%))
 import XMonad.Actions.Warp
+import System.Directory (getHomeDirectory)
+import System.IO.Unsafe
 
 main = do
   xmonad $ gnomeConfig
@@ -49,12 +51,12 @@ main = do
         {-ratio = 1/2-}
         -- Remove some keys.
         removeKeys = [ "M-w"
-                     , "M-e"
                      , "M-r"
                      ]
         keys = [ ("M-S-z", spawn "gnome-screensaver-command --lock")
                , ("M-S-q", spawn "gnome-session-save --gui --logout-dialog")
                , ("M-S-f", spawn "xdg-open https://duckduckgo.com")
+               , ("M-e", spawn "$HOME/bin/e")
                , ("M-<Left>", prevScreen)
                , ("M-<Right>", nextScreen)
                , ("M-S-<Left>", shiftPrevScreen)

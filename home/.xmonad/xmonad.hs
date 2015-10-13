@@ -53,7 +53,7 @@ main = do
         removeKeys = [ "M-w"
                      , "M-r"
                      ]
-        keys = [ ("M-S-z", spawn "gnome-screensaver-command --lock")
+        keys = [ ("M-S-z", spawn "~/bin/lock")
                , ("M-S-q", spawn "gnome-session-save --gui --logout-dialog")
                , ("M-S-f", spawn "xdg-open https://duckduckgo.com")
                , ("M-e", spawn "$HOME/bin/e")

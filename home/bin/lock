@@ -1,0 +1,7 @@
+#!/bin/bash
+if [[ $(uname) == "Darwin" ]]
+then
+  nohup /System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine > /dev/null &
+else [[ $(uname) == Linux ]]
+  DISPLAY=:0 gnome-screensaver-command -l
+fi
